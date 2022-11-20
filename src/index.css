@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navbar-item {
+    @apply w-28 flex justify-center items-center text-center rounded-md p-2 px-3 hover:font-medium hover:bg-gray-300 hover:text-teal-600 hover:cursor-pointer dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white dark:hover:font-normal;
+  }
+}
+
+.dark-neon-text:hover {
+  color: #0e433d;
+  text-shadow:
+    0 0 7px #0fa,
+    0 0 12px #0fa;
+}
+
+.light-neon-text:hover {
+  text-shadow:
+    0 0 2px #37ffe8,
+    0 0 7px #29c0ae,
+    0 0 20px #36ffe8;
+}
