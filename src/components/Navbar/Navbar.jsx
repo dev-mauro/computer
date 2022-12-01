@@ -1,6 +1,4 @@
-import { NavLink } from 'react-router-dom'
-
-import { CartWidget, CategoriesList, NavbarTitle, Searcher } from './';
+import { NavbarTitle, NavbarWidgets, CategoriesList, Searcher } from './';
 
 
 
@@ -16,7 +14,7 @@ const Navbar = ({ darkMode }) => {
       <NavbarTitle darkMode={ darkMode }/>
       <CategoriesList />
       <Searcher/>
-      <CartWidget />
+      <NavbarWidgets />
 
     </nav>
   )

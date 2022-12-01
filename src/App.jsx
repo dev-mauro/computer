@@ -1,26 +1,24 @@
-import { Routes, Route } from 'react-router-dom'
-import { Navbar, ToggleDarkMode, Searcher } from './components'
-import { HomePage, Hardware, Equipos, Perifericos, Carrito } from './' 
-import { useDarkMode } from './hooks'
+import { Routes, Route, Navigate } from 'react-router-dom'
+
+import { AppLayout } from './layout';
+import { HomePage, ItemListPage, CartPage } from './pages';
 
 function App() {
 
-  const { darkMode, toggleDarkMode } = useDarkMode();
-
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      <Navbar darkMode={darkMode} />
+    <AppLayout>
+
       <Routes>
-        <Route path="/" element={ <HomePage /> }></Route>
-        <Route path="/hardware" element={  <Hardware/> }></Route>
-        <Route path="/perifericos" element={  <Perifericos /> }></Route>
-        <Route path="/equipos" element={  <Equipos /> }></Route>
-        <Route path="/carrito" element={  <Carrito /> }></Route>
+        <Route path="/" element={ <HomePage /> } />
+        <Route path="/carrito" element={  <CartPage /> } />
+        <Route path="/categoria/:categoryId" element={ <ItemListPage /> }/>
+
+        <Route path="*" element={ <Navigate to="/" replace/> }/>
       </Routes>
 
-      <ToggleDarkMode toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-    </div>
+    </AppLayout>
+
   )
 }
 
-export default App
+export default App;
