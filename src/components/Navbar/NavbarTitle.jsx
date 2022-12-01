@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux'
+
 import { NavLink } from 'react-router-dom'
 import { CpuChipIcon } from '@heroicons/react/24/solid'
 
@@ -6,7 +8,10 @@ const neonText = (darkMode) =>
     ? 'dark-neon-text'
     : 'light-neon-text';
 
-const NavbarTitle = ({ darkMode }) => {
+const NavbarTitle = () => {
+
+  const {darkMode} = useSelector(state => state.darkMode);
+
   return (
     <NavLink to="/" className={`max-w-sm pl-1 xs:pl-2 md:pl-0 justify-self-start mr-4 flex justify-start items-center text-teal-500 hover:cursor-pointer dark:hover:text-teal-200 transition-all duration-500 dark:text-teal-300 xs:justify-self-center ${neonText(darkMode)}`}>
 

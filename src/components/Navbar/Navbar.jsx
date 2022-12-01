@@ -2,7 +2,7 @@ import { NavbarTitle, NavbarWidgets, CategoriesList, Searcher } from './';
 
 
 
-const Navbar = ({ darkMode }) => {
+const Navbar = () => {
   return (
     <nav
       className="md:flex flex-wrap justify-start
@@ -11,7 +11,7 @@ const Navbar = ({ darkMode }) => {
       dark:bg-gray-800 dark:text-white py-5"
     >
 
-      <NavbarTitle darkMode={ darkMode }/>
+      <NavbarTitle/>
       <CategoriesList />
       <Searcher/>
       <NavbarWidgets />
