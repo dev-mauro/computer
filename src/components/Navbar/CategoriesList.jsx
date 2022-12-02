@@ -6,14 +6,14 @@ const active = ( {isActive} ) => {
 
 const CategoriesList = () => {
   return (
-    <ul className="justify-center items-center row-start-3 mt-2 md:mt-0 row-span-4 md:border-l border-gray-300 dark:border-slate-600 flex space-x-1 md:pl-1 mr-1">
+    <ul className="justify-center items-center row-start-3 mt-2 md:mt-0 row-span-4 md:border-l border-gray-300 dark:border-slate-600 flex space-x-1 md:pl-1 mr-1 mb-1">
       <NavLink to="/categoria/hardware" className={ active }>
         Hardware
       </NavLink>
-      <NavLink to="/categoria/perifericos" className={ active }>
+      <NavLink to="/categoria/periferico" className={ active }>
         Periféricos
       </NavLink>
-      <NavLink to="/categoria/equipos" className={ active }>
+      <NavLink to="/categoria/equipo" className={ active }>
         Equipos
       </NavLink>
     </ul>

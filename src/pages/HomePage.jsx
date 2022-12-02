@@ -1,7 +1,10 @@
+import { ItemListPage } from "./";
+import { PageTitle } from "../components"; 
+
 const HomePage = () => {
   return (
     <>
-      <div>HomePage</div>
+      <ItemListPage />
     </>
   )
 }

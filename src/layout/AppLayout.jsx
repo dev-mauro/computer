@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { Navbar, ToggleDarkMode } from "../components"
+import { Navbar } from "../components"
 
 const AppLayout = ({children}) => {
 
@@ -8,11 +8,18 @@ const AppLayout = ({children}) => {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <Navbar/>
+      <div style={{minHeight: '100vh'}} className="bg-gray-50 dark:bg-slate-700">
 
-      { children }
+        <Navbar/>
 
-      {/* Footer */}
+        <main className="px-2 xs:px-5 py-1 pb-10 bg-gray-50 dark:bg-slate-700">
+
+          { children }
+
+        </main>
+
+        {/* Footer */}
+      </div>
     </div>
   )
 }

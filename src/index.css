@@ -8,6 +8,20 @@
   }
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #29c0ae;
+  border-radius: 10px;
+}
+
 .dark-neon-text:hover {
   color: #0e433d;
   text-shadow:
