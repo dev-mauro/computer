@@ -26,11 +26,16 @@ const useCounter = ({initialValue = 1, minValue, maxValue}) => {
     changeState(Number(newValue));
   }
 
+  const onReset = () => {
+    setCount(initialValue);
+  }
+
   return {
     count,
     onAdd,
     onSubstract,
     onSetValue,
+    onReset,
   }
 }
 

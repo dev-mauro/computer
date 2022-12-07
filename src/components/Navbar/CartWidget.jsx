@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
-
-const itemsCount = 10;
+import { useSelector } from 'react-redux'
 
 const CartWidget = () => {
+
+  const { itemCount } = useSelector(state => state.cart);
+
   return (
     <NavLink to="carrito" className="flex">
       <button
@@ -11,7 +13,7 @@ const CartWidget = () => {
       >
 
         <ShoppingBagIcon className="w-6 h-6"/>
-        <span>{ itemsCount }</span>
+        <span>{ itemCount }</span>
 
       </button>
     </NavLink>

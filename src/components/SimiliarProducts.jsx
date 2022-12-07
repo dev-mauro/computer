@@ -32,7 +32,7 @@ const SimiliarProducts = ({ product }) => {
       
     });
 
-  }, [category])
+  }, [product])
 
   return (
     <div
@@ -41,7 +41,7 @@ const SimiliarProducts = ({ product }) => {
       <div className="flex items-center mb-5">
         <TagIcon className="w-6 h-6 mr-3 dark:text-white"/>
         <h2 className="text-2xl 2xs:text-3xl capitalize font-bold pb-1 dark:text-white">
-          Productos similares
+          productos relacionados
         </h2>
       </div>
 
