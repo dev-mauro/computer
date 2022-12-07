@@ -10,7 +10,6 @@ const ItemDetailPage = () => {
   const { productName } = useParams();
 
   const [product, setProduct] = useState({})
-
   const [similarProducts, setSimilarProducts] = useState([])
 
   useEffect(() => {
@@ -20,17 +19,28 @@ const ItemDetailPage = () => {
   useEffect(() => {
     if(!product.category) return;
 
-    const subCategory = product.category.split('/')[1];
+    const [mainCategory, subCategory] = product.category.split('/');
 
-    getProductsByCategory(subCategory)
-      .then(resp => {
-        const similar = resp.filter(item => item.id != product.id);
+    getProductsByCategory( subCategory ).then( resp => {
+      let similar = [];
+      
+      if( resp.length > 1 ) {
+        similar = resp.filter(item => item.id != product.id);
         setSimilarProducts(similar)
+        return;
+      }
+
+      //Se ejecuta si no hay ningun producto con la misma subcategoria
+      getProductsByCategory( mainCategory ).then( resp => {
+        similar = resp.filter(item => item.id != product.id);
+        setSimilarProducts(similar);
       });
+      
+    });
 
   }, [product])
 
-  const detailTitle = () => {
+  const itemDetailTitle = () => {
     const {model, brand} = product;
 
     if(!model) return;
@@ -52,7 +62,7 @@ const ItemDetailPage = () => {
         <div className="2xs:pl-5 w-full md:w-1/2 max-w-2xl">
 
           <h3 className="text-3xl capitalize font-bold pb-1 dark:text-white">
-            {detailTitle()}
+            {itemDetailTitle()}
           </h3>
 
           <p className="text-xl font-light mb-16 dark:text-gray-100">

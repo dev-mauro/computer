@@ -13,7 +13,7 @@ const ItemCard = ({model, brand, details, price, imageURL}) => {
   return (
     <div
       style={{height: '400px'}}
-      className="group shrink-0 relative flex flex-col w-72 bg-slate-100 border-b-2 border-b-teal-600 rounded-md shadow-lg hover:shadow-xl dark:border-teal-400 dark:bg-gray-800"
+      className="group shrink-0 relative flex flex-col w-72 bg-slate-100 border-b-2 border-b-teal-600 rounded-md shadow-lg hover:shadow-xl dark:border-teal-400 dark:bg-slate-700"
     >
       <figure className="bg-gray-100 h-fit w-full rounded-md mb-7">
         <img

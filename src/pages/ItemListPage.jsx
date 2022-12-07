@@ -16,7 +16,14 @@ const ItemListPage = () => {
       getProductsByCategory(categoryId).then( resp => {
         setProducts(resp);
       });
+      return;
     }
+
+    //Si no hay categoria, mostrar todos los productos.
+    getProducts().then(resp => {
+      console.log(resp)
+      setProducts(resp.products);
+    });
 
   }, [categoryId])
   

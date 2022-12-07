@@ -13,14 +13,20 @@
   width: 8px;
 }
 
+.custom-scrollbar:hover::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
 .custom-scrollbar::-webkit-scrollbar-track{
   background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #29c0ae;
+  background: #1e8d80;
   border-radius: 10px;
 }
+
 
 .dark-neon-text:hover {
   color: #0e433d;

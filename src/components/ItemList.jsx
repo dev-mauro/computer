@@ -2,7 +2,7 @@ import { ItemCard } from "./"
 
 const ItemList = ({ productList, justify = 'center', wrap = true, shrink = false }) => {
   
-  wrap = (wrap) ? 'flex-wrap max-w-7xl gap-x-10' : 'overflow-x-scroll gap-x-5 xl:overflow-x-auto pb-3 custom-scrollbar';
+  wrap = (wrap) ? 'flex-wrap max-w-7xl gap-x-10' : 'overflow-x-scroll gap-x-5 xl:overflow-x-auto pb-5 custom-scrollbar';
   
   return (
     <div className={`flex ${wrap} justify-${justify}  gap-y-12 mx-auto`}>
