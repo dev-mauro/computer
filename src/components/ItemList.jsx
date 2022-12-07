@@ -1,6 +1,6 @@
 import { ItemCard } from "./"
 
-const ItemList = ({ productList, justify = 'center', wrap = true, shrink = false }) => {
+const ItemList = ({ productList, justify = 'center', wrap = true }) => {
   
   wrap = (wrap) ? 'flex-wrap max-w-7xl gap-x-10' : 'overflow-x-scroll gap-x-5 xl:overflow-x-auto pb-5 custom-scrollbar';
   
