@@ -13,8 +13,6 @@ export const OrderFinished = ({order}) => {
 
   const { id } = order;
 
-  console.log({order});
-
   return (
     <div className="text-center dark:text-white pt-10">
       <h3 className="text-3xl mb-3">¡ Finalizaste tu compra !</h3>

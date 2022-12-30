@@ -9,7 +9,6 @@ const Searcher = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log('submit')
   }
 
   return (
