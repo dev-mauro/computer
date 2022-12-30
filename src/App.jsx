@@ -1,9 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AppLayout } from './layout';
-import { HomePage, ItemListPage, CartPage, ItemDetailPage } from './pages';
+import { HomePage, ItemListPage, CartPage, ItemDetailPage, BuyFormPage } from './pages';
 
-function App() {
+function App() {  
 
   return (
     <AppLayout>
@@ -13,6 +13,7 @@ function App() {
         <Route path="/carrito" element={  <CartPage /> } />
         <Route path="/categoria/:categoryId" element={ <ItemListPage /> }/>
         <Route path="/producto/:productName" element={ <ItemDetailPage /> }/>
+        <Route path="/finalizar-compra" element={ <BuyFormPage/> }/>
 
         <Route path="*" element={ <Navigate to="/" replace/> }/>
       </Routes>

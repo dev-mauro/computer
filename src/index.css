@@ -18,6 +18,17 @@
   }
 }
 
+.hero {
+  background-image: url('https://user-images.githubusercontent.com/68218563/210024107-0d9573a2-d911-4ba2-aaee-ae18bb03571b.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+
+
+input:focus {
+  outline: transparent;
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   height: 8px;
   width: 8px;
