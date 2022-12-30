@@ -1,10 +1,18 @@
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebaseDB";
+
 const getProducts = async() => {
 
-  const response = await fetch('../src/data/data.json');
-  const data = await response.json();
+  const coll = collection(db, 'products');
+  const { docs } = await getDocs( coll );
 
+  const data = docs.map( doc => ({
+    ...doc.data(),
+    id: doc.id,
+  }) );
 
   return data;
+
 }
 
 export { getProducts }

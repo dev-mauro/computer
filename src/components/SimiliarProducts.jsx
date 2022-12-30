@@ -1,38 +1,41 @@
 import { useEffect, useState } from "react";
 import { TagIcon } from "@heroicons/react/24/solid";
 
-import { ItemList } from "../components";
-import { getProductsByCategory } from "../helpers";
+import { ItemList, LoadingSimilarProducts } from "../components";
+import { getProductsBy } from "../helpers";
 
 const SimiliarProducts = ({ product }) => {
 
-  const { category, id } = product;
+  const { category, subcategory, id } = product;
 
   const [similarProducts, setSimilarProducts] = useState([])
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if(!category) return;
 
-    const [mainCategory, subCategory] = category.split('/');
-
-    getProductsByCategory( subCategory ).then( resp => {
+    getProductsBy('subcategory', subcategory ).then( resp => {
       let similar = [];
       
       if( resp.length > 1 ) {
         similar = resp.filter(item => item.id != id);
-        setSimilarProducts(similar)
+        setSimilarProducts(similar);
+        setLoading(false);
         return;
       }
 
       //Se ejecuta si no hay ningun producto con la misma subcategoria
-      getProductsByCategory( mainCategory ).then( resp => {
+      getProductsBy('category', category ).then( resp => {
         similar = resp.filter(item => item.id != id);
         setSimilarProducts(similar);
+        setLoading(false);
       });
       
     });
 
   }, [product])
+
+  if(loading) return <LoadingSimilarProducts />
 
   return (
     <div
