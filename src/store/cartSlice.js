@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getLocalCart } from '../helpers';
 
-const initialState = {
+const initialState = getLocalCart() || {
   itemCount: 0,
   items: []
-}
+};
 /*
 items:
   [{
@@ -31,9 +32,17 @@ const cartSlice = createSlice({
     removeItem: (state, {payload}) => {
       state.itemCount -= payload.qty;
       state.items = state.items.filter(({item}) => item.id != payload.item.id);
+    },
+    clearCart: (state, action) => {
+      state.itemCount = 0;
+      state.items = [];
+    },
+    setCart: (state, {payload}) => {
+      state.itemCount = payload.itemCount;
+      state.items = payload.items;
     }
   }
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, clearCart, setCart } = cartSlice.actions;
 export { cartSlice };

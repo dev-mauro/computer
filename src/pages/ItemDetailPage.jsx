@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import { useDispatch } from "react-redux";
 
-import { getProcutsByName } from "../helpers";
-import { ItemDetailImage, ItemDescription, ItemDetails, AddCartButton, SimiliarProducts, ItemCount, NavigateCartButton } from "../components"
+import { getProductsBy } from "../helpers";
+import { ItemDetailImage, ItemDescription, ItemDetails, AddCartButton, SimiliarProducts, ItemCount, NavigateCartButton, Loading } from "../components"
 import { useCartCheck, useCounter } from '../hooks'
 import { addItem } from "../store/cartSlice";
 
@@ -11,6 +11,7 @@ const ItemDetailPage = () => {
 
   const { productName } = useParams();
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true)
   //Estado maneja si el producto está en el carro
   const [added, setAdded] = useState(false)
 
@@ -24,9 +25,11 @@ const ItemDetailPage = () => {
   const { isInCart } = useCartCheck();
 
   useEffect(() => {
-    getProcutsByName(productName).then( resp => {
+    getProductsBy('model', productName).then( resp => {
       const product = resp[0];
-      setProduct(product)
+
+      setProduct(product);
+      setLoading(false);
 
       //Se verifica que el producto está en el carro
       isInCart(product)
@@ -48,11 +51,13 @@ const ItemDetailPage = () => {
     }));
   }
 
+  if(loading) return(<Loading />);
+
   return (
     <>
       <div className="flex py-10 flex-col md:flex-row max-w-7xl mx-auto md:space-x-10 my-16">
 
-        <ItemDetailImage imageURL={ product.image }/>
+        <ItemDetailImage imageURL={ product.imageURL }/>
 
         <div className="2xs:pl-5 w-full md:w-1/2 max-w-2xl">
 
