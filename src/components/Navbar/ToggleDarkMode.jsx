@@ -3,11 +3,10 @@ import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 
 import { toggleDarkMode } from '../../store/darkModeSlice';
 
-
 const ToggleDarkMode = () => {
 
   const { darkMode } = useSelector( state => state.darkMode);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();  
 
   return (
     <fieldset

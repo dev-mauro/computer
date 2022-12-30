@@ -1,10 +1,18 @@
 import { NavLink } from 'react-router-dom'
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
+
+import { updateLocalCart } from '../../helpers';
 
 const CartWidget = () => {
 
-  const { itemCount } = useSelector(state => state.cart);
+  const { items, itemCount } = useSelector(state => state.cart);
+
+  useEffect(() => {
+    updateLocalCart( items, itemCount );
+  }, [itemCount])
+  
 
   return (
     <NavLink to="carrito" className="flex">

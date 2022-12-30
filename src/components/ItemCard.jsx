@@ -13,26 +13,26 @@ const ItemCard = ({model, brand, details, price, imageURL}) => {
   return (
     <div
       style={{height: '400px'}}
-      className="group shrink-0 relative flex flex-col w-72 bg-slate-100 border-b-2 border-b-teal-600 rounded-md shadow-lg hover:shadow-xl dark:border-teal-400 dark:bg-slate-700"
+      className="group shrink-0 relative flex flex-col w-72 bg-slate-100 border-b-2 border-b-teal-400 rounded-md shadow-lg hover:shadow-xl dark:border-teal-400 dark:bg-slate-700"
     >
       <figure className="bg-gray-100 h-fit w-full rounded-md mb-7">
         <img
-          className="rounded-t-md w-full"
-          src={imageURL || placeholderImage()}
+          className="rounded-t-md w-full h-48 bg-slate-200 dark:bg-gray-700"
+          src={imageURL}
           alt=""
         />
       </figure>
 
       <div className="px-3 w-full">
         <h3 className="capitalize mb-1 text-lg text-black dark:text-white">
-          {model}, <b className="text-teal-600 dark:text-teal-400">{brand}</b>
+          {model}, <b className="text-teal-500 dark:text-teal-400">{brand}</b>
         </h3>
 
         <p className="text-sm text-gray-500 dark:text-gray-300 h-5 overflow-hidden group-hover:h-fit max-h-10">
           {details}
         </p>
 
-        <hr className="border-teal-700 mt-3 border-t-0 border-b-2"/>
+        <hr className="border-teal-400 mt-3 border-t-0 border-b-2"/>
 
         <p className="font-bold dark:text-white mt-3">
           ${price}
@@ -41,7 +41,7 @@ const ItemCard = ({model, brand, details, price, imageURL}) => {
 
       <button
         onClick={() => onClickDetail(model)}
-        className="absolute w-60 sm:w-64 bottom-3 left-3 px-3 leading-7 rounded-md bg-teal-600 text-white">
+        className="absolute w-60 sm:w-64 bottom-3 left-3 px-3 leading-7 rounded-md bg-teal-400 text-white">
         Detalles
       </button>
 

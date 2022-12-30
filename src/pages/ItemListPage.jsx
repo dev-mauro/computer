@@ -1,33 +1,36 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 
-import { getProducts, getProductsByCategory } from "../helpers";
-import { ItemList, PageTitle } from "../components";
+import { getProducts, getProductsBy } from "../helpers";
+import { ItemList, LoadingProducts, PageTitle } from "../components";
 
 const ItemListPage = () => {
   
   const { categoryId } = useParams();
-
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
     if(categoryId){
-      getProductsByCategory(categoryId).then( resp => {
+      getProductsBy('category', categoryId).then( resp => {
         setProducts(resp);
+        setLoading(false);
       });
       return;
     }
 
     //Si no hay categoria, mostrar todos los productos.
     getProducts().then(resp => {
-      console.log(resp)
-      setProducts(resp.products);
+      setProducts(resp);
+      setLoading(false);
     });
 
   }, [categoryId])
   
   
+  if(loading) return (<LoadingProducts />);
+
   return (
     <>
       <PageTitle title={categoryId}/>
