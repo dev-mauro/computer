@@ -20,9 +20,9 @@ export const CartItem = ({ item }) => {
   return (
     <div className="py-10 border-b-2 border-slate-300 flex relative dark:border-teal-400">
       
-      <figure className="bg-slate-100 w-44 h-44 dark:bg-gray-800">
+      <figure className="bg-slate-100 w-44 h-44 dark:bg-gray-800 overflow-hidden flex justify-center">
         <img
-          src={imageURL} alt=""
+          src={imageURL} alt="" className="h-44 max-w-fit"
         />
       </figure>
 

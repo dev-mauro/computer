@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { darkModeSlice } from './DarkModeSlice';
+import { darkModeSlice } from './darkModeSlice';
 import { cartSlice } from './cartSlice';
 
 const store = configureStore({
