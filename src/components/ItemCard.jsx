@@ -17,11 +17,7 @@ const ItemCard = ({model, brand, details, price, imageURL}) => {
     >
       <figure className="bg-slate-100 h-fit w-full rounded-md mb-7 flex justify-center overflow-hidden">
         <img
-<<<<<<< HEAD
-          className="rounded-t-md w-full h-48 bg-slate-200 dark:bg-gray-700"
-=======
           className="rounded-t-md max-w-fit h-48"
->>>>>>> master
           src={imageURL}
           alt=""
         />
