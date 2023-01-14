@@ -11,6 +11,8 @@ export const OrderFinished = ({order}) => {
     dispatch( clearCart() );
   }, [])
 
+  console.log('Orden finalizada', order)
+
   const { id } = order;
 
   return (

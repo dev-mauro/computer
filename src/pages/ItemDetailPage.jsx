@@ -51,6 +51,15 @@ const ItemDetailPage = () => {
     }));
   }
 
+<<<<<<< HEAD
+=======
+  useEffect(() => {
+    setLoading(true);
+  }, [productName])
+  
+  
+
+>>>>>>> master
   if(loading) return(<Loading />);
 
   return (
